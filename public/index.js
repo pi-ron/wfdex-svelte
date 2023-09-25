@@ -365,6 +365,7 @@ const PUBLIC_VERSION = "4";
 if (typeof window !== "undefined")
   (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(PUBLIC_VERSION);
 const svelteLogo = "" + new URL("assets/svelte-a39f39b7.svg", import.meta.url).href;
+const webflowLogo = "" + new URL("assets/webflow-icon-0b515977.svg", import.meta.url).href;
 function create_fragment$1(ctx) {
   let button;
   let t0;
@@ -440,13 +441,16 @@ class TailwindCSS extends SvelteComponent {
 const App_svelte_svelte_type_style_lang = "";
 function create_fragment(ctx) {
   let main;
+  let div2;
   let div0;
-  let t0;
+  let t1;
   let h1;
-  let t2;
+  let t3;
+  let p;
+  let t6;
   let div1;
   let counter;
-  let t3;
+  let t7;
   let tailwindcss;
   let current;
   counter = new Counter({});
@@ -454,28 +458,36 @@ function create_fragment(ctx) {
   return {
     c() {
       main = element("main");
+      div2 = element("div");
       div0 = element("div");
-      div0.innerHTML = `<a href="https://svelte.dev" target="_blank" rel="noreferrer"><img src="${svelteLogo}" class="logo svelte svelte-au4jjd" alt="Svelte Logo"/></a>`;
-      t0 = space();
+      div0.innerHTML = `<a href="https://webflow.com" target="_blank" rel="noreferrer"><img src="${webflowLogo}" class="logo webflow svelte-au4jjd" alt="Webflow Logo"/></a> <a href="https://svelte.dev" target="_blank" rel="noreferrer"><img src="${svelteLogo}" class="logo svelte svelte-au4jjd" alt="Svelte Logo"/></a>`;
+      t1 = space();
       h1 = element("h1");
-      h1.textContent = "Vite + Svelte";
-      t2 = space();
+      h1.textContent = "Webflow + Svelte";
+      t3 = space();
+      p = element("p");
+      p.innerHTML = `<strong>Todo:</strong> Add Webflow style variables`;
+      t6 = space();
       div1 = element("div");
       create_component(counter.$$.fragment);
-      t3 = space();
+      t7 = space();
       create_component(tailwindcss.$$.fragment);
+      attr(div0, "class", "flex");
       attr(h1, "class", "p-12");
-      attr(div1, "class", "card");
+      attr(div2, "class", "flex flex-col items-center justify-center h-screen");
     },
     m(target, anchor) {
       insert(target, main, anchor);
-      append(main, div0);
-      append(main, t0);
-      append(main, h1);
-      append(main, t2);
-      append(main, div1);
+      append(main, div2);
+      append(div2, div0);
+      append(div2, t1);
+      append(div2, h1);
+      append(div2, t3);
+      append(div2, p);
+      append(div2, t6);
+      append(div2, div1);
       mount_component(counter, div1, null);
-      insert(target, t3, anchor);
+      insert(target, t7, anchor);
       mount_component(tailwindcss, target, anchor);
       current = true;
     },
@@ -495,7 +507,7 @@ function create_fragment(ctx) {
     d(detaching) {
       if (detaching) {
         detach(main);
-        detach(t3);
+        detach(t7);
       }
       destroy_component(counter);
       destroy_component(tailwindcss, detaching);

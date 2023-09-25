@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently -r \"webflow extension serve\" \"vite build --watch\"",
+    "devite": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"

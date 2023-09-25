@@ -484,6 +484,16 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+}.flex {
+  display: flex;
+}.h-screen {
+  height: 100vh;
+}.flex-col {
+  flex-direction: column;
+}.items-center {
+  align-items: center;
+}.justify-center {
+  justify-content: center;
 }.p-12 {
   padding: 3rem;
 }.drop-shadow {
