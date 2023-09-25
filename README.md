@@ -14,9 +14,9 @@ This template should help get you started developing Webflow Designer Extensions
 
 
 ## Todo
-[x] Add wf style variables to Tailwind theme
-[ ] Setup base app bar with window size switcher
-[x] Get Melt UI working
+- [x] Add wf style variables to Tailwind theme
+- [ ] Setup base app bar with window size switcher
+- [x] Get Melt UI working
 
 `The below content is from the default vite svelte template`
 ## Recommended IDE Setup
