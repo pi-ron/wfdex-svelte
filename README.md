@@ -1,7 +1,8 @@
-# Svelte + TS + Vite
+# Svelte + TS + Tailwind + Vite + Webflow
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+This template should help get you started developing Webflow Designer Extensions using Svelte, TypeScript & Tailwind in Vite.
 
+`The below content is from the default vite svelte template`
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
