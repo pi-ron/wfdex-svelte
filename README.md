@@ -9,7 +9,7 @@ This template should help get you started developing Webflow Designer Extensions
 `
 
 ## Todo
-[ ] Add wf style variables to Tailwind theme
+[] Add wf style variables to Tailwind theme
 
 `The below content is from the default vite svelte template`
 ## Recommended IDE Setup
