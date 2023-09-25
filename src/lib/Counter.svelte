@@ -4,12 +4,8 @@
     count += 1
   }
 	import { onMount } from 'svelte';
-
-	onMount(() => {
-		console.log('the component has moved tice');
-	});
 </script>
 
-<button on:click={increment}>
+<button class="px-4 py-2 mt-4 border rounded-lg " on:click={increment}>
   count is {count}
 </button>

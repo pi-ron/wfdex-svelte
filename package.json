@@ -11,6 +11,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@iconify/svelte": "^3.1.4",
+    "@melt-ui/pp": "^0.1.2",
+    "@melt-ui/svelte": "^0.50.0",
     "@sveltejs/vite-plugin-svelte": "^2.4.2",
     "@tsconfig/svelte": "^5.0.0",
     "autoprefixer": "^10.4.16",
@@ -18,10 +21,12 @@
     "postcss": "^8.4.30",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.6",
+    "svelte-sequential-preprocessor": "^2.0.1",
     "tailwindcss": "^3.3.3",
     "tslib": "^2.6.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e"
   },
   "dependencies": {
     "@webflow/designer-extension-typings": "^0.1.7",

@@ -2,14 +2,21 @@
 
 This template should help get you started developing Webflow Designer Extensions using Svelte, TypeScript & Tailwind in Vite.
 
-## Scripts
-```
-    "dev": "concurrently -r \"webflow extension serve\" \"vite build --watch\"",
-    "devite": "vite dev", // Allows live reloading during dev but doesn't run Webflow
-```
+## Get Started
+`npm install`
+
+### Dev mode when Designer is open (No live reload as yet)
+`npm run dev`
+
+### Normal dev mode (vite)
+
+`npm run devite` // Allows live reloading during dev but doesn't run Webflow
+
 
 ## Todo
-[] Add wf style variables to Tailwind theme
+[x] Add wf style variables to Tailwind theme
+[ ] Setup base app bar with window size switcher
+[x] Get Melt UI working
 
 `The below content is from the default vite svelte template`
 ## Recommended IDE Setup

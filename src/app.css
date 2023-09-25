@@ -1,0 +1,77 @@
+main {
+  background:theme('colors.background2');
+  color:theme('colors.text1');
+}
+.radio-item {
+  display: grid;
+  place-items: center;
+  align-items: center;
+
+  background-color: theme("colors.actionSecondaryBackground");
+  color: theme("colors.actionSecondaryText");
+  font-size: theme("fontSize.base");
+  line-height: theme("lineHeight.4");
+  outline: none;
+
+  height: theme("height.9");
+  width: theme("width.9");
+
+  &:hover {
+    background-color: theme("colors.actionSecondaryBackgroundHover");
+    color: theme("colors.actionSecondaryTextHover");
+  }
+
+  &:focus {
+    z-index: 10;
+  }
+
+  &.active {
+    background:theme("colors.background4");
+  }
+}
+
+.radio-item[data-disabled] {
+  @apply cursor-not-allowed;
+}
+
+.radio-item[data-orientation="horizontal"] {
+  @apply border;
+  border-color:theme("colors.border1");
+
+  &:first-child {
+    @apply rounded-l-md rounded-r-none border-r-0;
+  }
+
+  &:last-child {
+    @apply rounded-r-md rounded-l-none border-l-0;
+  }
+}
+
+.radio-item[data-orientation="horizontal"]:dir(rtl) {
+  @apply border-x;
+
+  &:first-child {
+    @apply rounded-r-md;
+  }
+
+  &:last-child {
+    @apply rounded-l-md;
+  }
+}
+
+.radio-item[data-orientation="vertical"] {
+  @apply border-y;
+
+  &:first-child {
+    @apply rounded-t-md;
+  }
+
+  &:last-child {
+    @apply rounded-b-md ;
+  }
+}
+
+.radio-item[data-state="on"] {
+  color: theme("colors.actionSecondaryTextHover");
+  background: theme("colors.backgroundInactive");
+}
