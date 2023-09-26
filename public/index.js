@@ -3396,8 +3396,7 @@ function instance($$self, $$props, $$invalidate) {
     changeSize(currentSize);
   };
   const changeSize = async (size) => {
-    const sizeOptions = { width: size, height: size };
-    await webflow.setExtensionSize(sizeOptions);
+    await webflow.setExtensionSize(size);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty & /*$value*/

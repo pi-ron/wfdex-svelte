@@ -26,13 +26,11 @@
   }
 
   // Call Webflow API with typed parameter
-  const changeSize = async (size: string) => {
-    const sizeOptions: Webflow.ExtensionSizeOptions = {
-      width: size,
-      height: size // Adjust as needed
-    };
-    await webflow.setExtensionSize(sizeOptions);
-  }
+  const changeSize = async (size) => {
+  // Directly pass the size string to the setExtensionSize method
+  await webflow.setExtensionSize(size);
+}
+
 </script>
  
 <div
