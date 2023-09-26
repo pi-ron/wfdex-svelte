@@ -85,6 +85,7 @@
 
     &:focus {
       z-index: 10;
+      outline:1px solid theme("colors.blueBorder");
     }
 
     &.active {
