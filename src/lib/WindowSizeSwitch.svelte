@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createRadioGroup, melt } from '@melt-ui/svelte';
   import Icon from "@iconify/svelte";
+  import { AllowedSizeValues } from './webflowConstants';
   // Variable to hold the current selected size
   let currentSize = "";
 
@@ -15,7 +16,7 @@
   });
 
   // Array of available options for window size
-  const optionsArr = Object.values(wfdexWebflowApiTypes.AllowedSizeValues);
+  const optionsArr = Object.values(AllowedSizeValues);
 
   // Subscribe to value changes and update the currentSize variable
   value.subscribe((data) => currentSize = data)

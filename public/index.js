@@ -3025,6 +3025,11 @@ class Icon extends SvelteComponent {
     init(this, options, instance$1, create_fragment$3, safe_not_equal, {});
   }
 }
+const AllowedSizeValues = {
+  default: "default",
+  comfortable: "comfortable",
+  large: "large"
+};
 const WindowSizeSwitch_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
@@ -3389,9 +3394,9 @@ function instance($$self, $$props, $$invalidate) {
   component_subscribe($$self, item, (value2) => $$invalidate(1, $item = value2));
   component_subscribe($$self, isChecked, (value2) => $$invalidate(2, $isChecked = value2));
   component_subscribe($$self, value, (value2) => $$invalidate(8, $value = value2));
-  const optionsArr = ["default", "comfortable", "large"];
+  const optionsArr = Object.values(AllowedSizeValues);
   value.subscribe((data) => currentSize = data);
-  const run2 = function async() {
+  const run2 = async () => {
     console.log(currentSize);
     changeSize(currentSize);
   };
