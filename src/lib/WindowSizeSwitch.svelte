@@ -12,7 +12,7 @@
     defaultValue: 'default',
     orientation: 'horizontal'
   });
- 
+
   const optionsArr = ['default',  'comfortable', 'large'];
 
   value.subscribe((data) => currentSize = data)
@@ -20,7 +20,6 @@
   $: $value, run();
 
   const run = function async () {
-    //do something here
     console.log(currentSize)
     changeSize(currentSize)
     
