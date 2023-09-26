@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createRadioGroup, melt } from '@melt-ui/svelte';
+  
   import Icon from "@iconify/svelte";
   import { AllowedSizeValues } from './webflowConstants';
   // Variable to hold the current selected size
@@ -35,6 +36,7 @@
   const changeSize = async (size: wfdexWebflowApiTypes.AllowedSize) => {
     await webflow.setExtensionSize(size);
   }
+  
 </script>
  
 <div
@@ -71,7 +73,7 @@
 
     background-color: theme("colors.actionSecondaryBackground");
     color: theme("colors.actionSecondaryText");
-    font-size: 0.825rem;
+    font-size: 1rem;
     line-height: theme("lineHeight.4");
     outline: none;
 
