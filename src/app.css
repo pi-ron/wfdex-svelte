@@ -1,5 +1,5 @@
 main {
-  background:theme('colors.background2');
+  background:theme('colors.background1');
   color:theme('colors.text1');
 }
 .radio-item {

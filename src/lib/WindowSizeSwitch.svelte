@@ -88,7 +88,7 @@
     }
 
     &.active {
-      background:theme("colors.background4");
+      background:theme("colors.background3");
     }
   }
 
@@ -101,11 +101,11 @@
     border-color:theme("colors.border1");
 
     &:first-child {
-      @apply rounded-l-md rounded-r-none border-r-0;
+      @apply rounded-l-sm rounded-r-none border-r-0;
     }
 
     &:last-child {
-      @apply rounded-r-md rounded-l-none border-l-0;
+      @apply rounded-r-sm rounded-l-none border-l-0;
     }
   }
 

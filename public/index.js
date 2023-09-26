@@ -3204,7 +3204,7 @@ function create_each_block(ctx) {
           ctx[13]
         )
       );
-      toggle_class(button, "svelte-67ha8w", true);
+      toggle_class(button, "svelte-pebbht", true);
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -3241,7 +3241,7 @@ function create_each_block(ctx) {
           ctx2[13]
         )
       );
-      toggle_class(button, "svelte-67ha8w", true);
+      toggle_class(button, "svelte-pebbht", true);
     },
     i(local) {
       if (current)
@@ -3300,7 +3300,7 @@ function create_fragment$2(ctx) {
         each_blocks[i].c();
       }
       set_attributes(div, div_data);
-      toggle_class(div, "svelte-67ha8w", true);
+      toggle_class(div, "svelte-pebbht", true);
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -3353,7 +3353,7 @@ function create_fragment$2(ctx) {
         },
         { "aria-label": "View density" }
       ]));
-      toggle_class(div, "svelte-67ha8w", true);
+      toggle_class(div, "svelte-pebbht", true);
     },
     i(local) {
       if (current)
@@ -3548,6 +3548,10 @@ class App extends SvelteComponent {
     init(this, options, null, create_fragment, safe_not_equal, {});
   }
 }
+const targetElement = document.getElementById("app");
+if (!targetElement) {
+  throw new Error("App root element not found");
+}
 new App({
-  target: document.getElementById("app")
+  target: targetElement
 });
