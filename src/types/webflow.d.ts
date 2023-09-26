@@ -1,9 +1,16 @@
 // webflow.d.ts
 
-declare namespace Webflow {
+declare namespace wfdexWebflowApiTypes {
   // Define a type representing the allowed size options
   export type AllowedSize = 'default' | 'comfortable' | 'large';
 
+  // Mapping object to hold the AllowedSize values
+  export const AllowedSizeValues: { [key in AllowedSize]: key } = {
+    default: 'default',
+    comfortable: 'comfortable',
+    large: 'large',
+  };
+  
   interface ExtensionSizeOptions {
     width: string;
     height: string;
@@ -14,4 +21,4 @@ declare namespace Webflow {
   }
 }
 
-declare const webflow: Webflow.WebflowAPI;
+declare const webflow: wfdexWebflowApiTypes.WebflowAPI;
