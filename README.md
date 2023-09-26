@@ -8,6 +8,7 @@ This project serves as a starter template for developing Webflow Designer Extens
 - TypeScript for static typing.
 - Tailwind CSS for utility-first styling.
 - Vite for fast development and bundling.
+- Example function for changing the window size via the Webflow API.
 
 ## Getting Started
 
