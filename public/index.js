@@ -3393,10 +3393,11 @@ function instance($$self, $$props, $$invalidate) {
   value.subscribe((data) => currentSize = data);
   const run2 = function async() {
     console.log(currentSize);
-    changeSize();
+    changeSize(currentSize);
   };
-  const changeSize = async (params) => {
-    await webflow.setExtensionSize(currentSize);
+  const changeSize = async (size) => {
+    const sizeOptions = { width: size, height: size };
+    await webflow.setExtensionSize(sizeOptions);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty & /*$value*/
