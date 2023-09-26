@@ -4,6 +4,7 @@
   
   let currentSize = "";
 
+  //Melt Radio Group setup
   const {
     elements: { root, item, hiddenInput },
     helpers: { isChecked },
@@ -25,6 +26,7 @@
     
   }
 
+  // Call Webflow API
   const changeSize = async (params:typeof currentSize) => {
     await webflow.setExtensionSize(currentSize);
   }
