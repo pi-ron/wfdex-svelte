@@ -1,11 +1,9 @@
 <script lang="ts">
   import { createRadioGroup, melt } from '@melt-ui/svelte';
-  
   import Icon from "@iconify/svelte";
   import { AllowedSizeValues } from './webflowConstants';
-  // Variable to hold the current selected size
-  let currentSize = "";
-
+  import { windowSize, setWindowSize } from '../stores/extension';
+  
   // Initializing the Melt Radio Group with default values and orientation
   const {
     elements: { root, item, hiddenInput },
@@ -18,25 +16,14 @@
 
   // Array of available options for window size
   const optionsArr = Object.values(AllowedSizeValues);
-
-  // Subscribe to value changes and update the currentSize variable
-  value.subscribe((data) => currentSize = data)
-
-  // Watch for changes in the selected value and call the run function
-  $: $value, run();
-
-  // Function to log the current size and call the changeSize function
-  const run = async () => {
-    console.log(currentSize);
-    // Assert the type of currentSize to wfdexWebflowApiTypes.AllowedSize
-    changeSize(currentSize as wfdexWebflowApiTypes.AllowedSize);
-  }
-
+  
   // Function to call the Webflow API to change the extension window size
   const changeSize = async (size: wfdexWebflowApiTypes.AllowedSize) => {
-    await webflow.setExtensionSize(size);
+    //Run store function
+    setWindowSize(size)
   }
-  
+  //Subscribe to melt ui value state then run changeSize
+  $: changeSize($value as wfdexWebflowApiTypes.AllowedSize);
 </script>
  
 <div

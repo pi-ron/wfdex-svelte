@@ -1,39 +1,18 @@
 <script lang="ts">
-  import { Router, Link, Route, navigate, getContext } from "svelte-routing";
-  import Home from "./routes/Home.svelte";
-  import About from "./routes/About.svelte"
-  import { setRouteInfo } from './stores/extension'; // Import the function
-
-  export let url = "";
-
-  // Subscribe to navigate event and update the routeInfo store
-  function onNavigate() {
-    const router = getContext('router'); // get router context
-    if (router) {
-      // wait for the next micro-task when the route is updated
-      Promise.resolve().then(() => {
-        const route = router.activeRoute;
-        if (route) {
-          const routeName = route.route.name;
-          setRouteInfo(routeName);
-        }
-      });
-    }
-  }
+  import { Router, Link, Route } from "svelte-routing";
+  import svelteLogo from '../assets/svelte.svg'
+  import webflowLogo from '../assets/webflow-icon.svg'
+  import Counter from '../lib/Counter.svelte'
+  // import MeltToggle from './lib/MeltToggle.svelte'
+  import WindowSizeSwitch from '../lib/WindowSizeSwitch.svelte'
+  import DividerHorizontal from '../lib/DividerHorizontal.svelte'
+  import Button from '../lib/components/Button.svelte';
+  import Icon from "@iconify/svelte";
 </script>
-<Router {url} on:navigate={onNavigate}>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-    </nav>
-    <div>
-      <Route path="/about" component={About} name="blan"/>
-      <Route path="/" component={Home} name="home" />
-    </div>
-  <!-- <main>
+  <main>
     <div class="flex flex-col items-center justify-start h-screen px-3">
       <div class="app-bar flex items-center self-stretch justify-between py-1">
-        <div class="text-xl font-medium">Starterkit</div>
+        <div class="text-xl font-medium">About</div>
         <WindowSizeSwitch />
       </div>
       <DividerHorizontal />
@@ -65,5 +44,30 @@
   
     </div>
   </div>
-  </main> -->
-</Router>
+  </main>
+
+
+
+
+<style>
+  /* main {
+    font-size:16px;
+  } */
+  main {
+    background:theme("colors.background1");
+    font-size:theme("fontSize.base");
+  }
+  .logo {
+    height: 4rem;
+    padding: 1em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.svelte:hover {
+    filter: drop-shadow(0 0 2em #ff3e00aa);
+  }
+
+</style>
