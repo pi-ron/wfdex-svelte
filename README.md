@@ -43,6 +43,17 @@ This project serves as a starter template for developing Webflow Designer Extens
   ```sh
   npm run devite
   ```
+## Testing
+
+You test your app by uploading the resulting bundle.zip to your workspace and installing it on a site.
+
+```sh
+npm run bundle
+```
+*or*
+```sh
+webflow extension bundle
+```
 
 ## Project Structure
 
