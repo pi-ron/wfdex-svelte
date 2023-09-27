@@ -9,6 +9,7 @@
 
   // Subscribe to navigate event and update the routeInfo store
   function onNavigate() {
+    console.log('onNavigate triggered')
     const router = getContext('router') as any; // get router context
     if (router) {
       // wait for the next micro-task when the route is updated
@@ -28,8 +29,8 @@
       <Link to="/about">About</Link>
     </nav>
     <div>
-      <Route path="/about" component={About} name="blan"/>
-      <Route path="/" component={Home} name="home name" />
+      <Route path="/" component={Home} name="homesss" />
+      <Route path="/about" component={About} name="aboutzzz" />
     </div>
   <!-- <main>
     <div class="flex flex-col items-center justify-start h-screen px-3">
