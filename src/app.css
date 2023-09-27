@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 
-main {
+body {
   background:theme('colors.background1');
   color:theme('colors.text1');
+  font-size:theme('fontSize.base');
+  line-height:theme('lineHeight.normal');
 }
 
 .btn {
@@ -126,3 +128,13 @@ h1,h2 {
 }
 
 
+/* Nav Links */
+
+.nav-link {
+  /* @apply px-2;
+  @apply py-1; */
+
+  > .iconify {
+    /* font-size:0.875rem; */
+  }
+}

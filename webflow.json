@@ -1,4 +1,5 @@
 {
   "name": "wfdex-v0",
-  "publicDir": "public"
+  "publicDir": "public",
+  "size": "compact"
 }

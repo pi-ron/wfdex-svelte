@@ -1,11 +1,9 @@
-<div class="divider">
-
+<div class="divider my-0 height-0">
+  <slot/>
 </div>
 
 <style lang="postcss">
-.divider {
-  height:1px;
-  width:100%;
-  background:theme('colors.border1');
-}
+  .line-height-0 {
+    line-height: 0;
+  }
 </style>
