@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Router, Link, Route, navigate, getContext } from "svelte-routing";
+  import { getContext } from "svelte";
+  import { Router, Link, Route, navigate } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import About from "./routes/About.svelte"
   import { setRouteInfo } from './stores/extension'; // Import the function
@@ -8,7 +9,7 @@
 
   // Subscribe to navigate event and update the routeInfo store
   function onNavigate() {
-    const router = getContext('router'); // get router context
+    const router = getContext('router') as any; // get router context
     if (router) {
       // wait for the next micro-task when the route is updated
       Promise.resolve().then(() => {
@@ -28,7 +29,7 @@
     </nav>
     <div>
       <Route path="/about" component={About} name="blan"/>
-      <Route path="/" component={Home} name="home" />
+      <Route path="/" component={Home} name="home name" />
     </div>
   <!-- <main>
     <div class="flex flex-col items-center justify-start h-screen px-3">
