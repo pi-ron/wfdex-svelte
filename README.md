@@ -43,6 +43,7 @@ This project serves as a starter template for developing Webflow Designer Extens
   ```sh
   npm run devite
   ```
+
 ## Testing
 
 You test your app by uploading the resulting bundle.zip to your workspace and installing it on a site.
@@ -59,6 +60,8 @@ webflow extension bundle
 
 - `src/`: Source code directory.
   - `components/`: Svelte components.
+  - `routes/`: Svelte components representing different routes.
+  - `stores/`: Svelte stores for managing state.
   - `types/`: TypeScript type definitions.
   - `main.ts`: Entry point file.
 - `public/`: Static assets.

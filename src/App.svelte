@@ -3,6 +3,7 @@
   import { Router, Link, Route, navigate } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import About from "./routes/About.svelte"
+  import Libraries from "./routes/Libraries.svelte"
   import { routeInfo } from './stores/extension'; // Import the function
   import WindowSizeSwitch from './lib/WindowSizeSwitch.svelte'
   import DividerHorizontal from './lib/DividerHorizontal.svelte'
@@ -22,6 +23,9 @@
           <Link to="/about" class="nav-link">
             <Button variant="ghost" label="About"></Button>
           </Link>
+          <Link to="/libraries" class="nav-link">
+            <Button variant="ghost" label="Libs"></Button>
+          </Link>
         </nav>
         <WindowSizeSwitch />
       </div>
@@ -31,6 +35,7 @@
       <div>
         <Route path="/" component={Home} name="Home" />
         <Route path="/about" component={About} name="About" />
+        <Route path="/libraries" component={Libraries} name="Libs" />
       </div>
     </main>
   </Router>
