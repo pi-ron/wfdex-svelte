@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 // Define possible window sizes
-type WindowSize = 'default' | 'comfortable' | 'large';
+type WindowSize = Parameters<typeof webflow.setExtensionSize>[0];
 
 // Create the writable store with the initial window size
 const windowSize = writable<WindowSize>('default');

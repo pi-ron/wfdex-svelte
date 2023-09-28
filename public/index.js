@@ -1168,7 +1168,7 @@ function create_fragment$a(ctx) {
     }
   };
 }
-function instance$9($$self, $$props, $$invalidate) {
+function instance$a($$self, $$props, $$invalidate) {
   let ariaCurrent;
   const omit_props_names = ["to", "replace", "state", "getProps", "preserveScroll"];
   let $$restProps = compute_rest_props($$props, omit_props_names);
@@ -1264,7 +1264,7 @@ function instance$9($$self, $$props, $$invalidate) {
 class Link extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$9, create_fragment$a, safe_not_equal, {
+    init(this, options, instance$a, create_fragment$a, safe_not_equal, {
       to: 7,
       replace: 8,
       state: 9,
@@ -1675,7 +1675,7 @@ function create_fragment$9(ctx) {
     }
   };
 }
-function instance$8($$self, $$props, $$invalidate) {
+function instance$9($$self, $$props, $$invalidate) {
   let $activeRoute;
   let { $$slots: slots = {}, $$scope } = $$props;
   let { path = "" } = $$props;
@@ -1733,7 +1733,7 @@ function instance$8($$self, $$props, $$invalidate) {
 class Route extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$8, create_fragment$9, safe_not_equal, { path: 6, component: 0 });
+    init(this, options, instance$9, create_fragment$9, safe_not_equal, { path: 6, component: 0 });
   }
 }
 const subscriber_queue = [];
@@ -2232,7 +2232,7 @@ function create_fragment$8(ctx) {
     }
   };
 }
-function instance$7($$self, $$props, $$invalidate) {
+function instance$8($$self, $$props, $$invalidate) {
   let $location;
   let $routes;
   let $base;
@@ -2357,7 +2357,7 @@ function instance$7($$self, $$props, $$invalidate) {
 class Router extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$7, create_fragment$8, safe_not_equal, {
+    init(this, options, instance$8, create_fragment$8, safe_not_equal, {
       basepath: 8,
       url: 9,
       viewtransition: 0,
@@ -2427,7 +2427,7 @@ function create_fragment$7(ctx) {
     }
   };
 }
-function instance$6($$self, $$props, $$invalidate) {
+function instance$7($$self, $$props, $$invalidate) {
   let count = 0;
   const increment = () => {
     $$invalidate(0, count += 1);
@@ -2437,7 +2437,7 @@ function instance$6($$self, $$props, $$invalidate) {
 class Counter extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$6, create_fragment$7, safe_not_equal, {});
+    init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
   }
 }
 function create_fragment$6(ctx) {
@@ -2475,7 +2475,7 @@ function create_fragment$6(ctx) {
     }
   };
 }
-function instance$5($$self, $$props, $$invalidate) {
+function instance$6($$self, $$props, $$invalidate) {
   let { name: name2 } = $$props;
   onMount(() => {
     setRouteInfo(name2);
@@ -2489,7 +2489,7 @@ function instance$5($$self, $$props, $$invalidate) {
 class Home extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$5, create_fragment$6, safe_not_equal, { name: 0 });
+    init(this, options, instance$6, create_fragment$6, safe_not_equal, { name: 0 });
   }
 }
 const svelteLogo = "" + new URL("assets/svelte-a39f39b7.svg", import.meta.url).href;
@@ -4791,7 +4791,7 @@ function create_fragment$5(ctx) {
     }
   };
 }
-function instance$4($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
   const state = {
     // Last icon name
     name: "",
@@ -4845,7 +4845,7 @@ function instance$4($$self, $$props, $$invalidate) {
 class Icon extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$4, create_fragment$5, safe_not_equal, {});
+    init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
   }
 }
 const AllowedSizeValues = {
@@ -5203,7 +5203,7 @@ function create_fragment$4(ctx) {
     }
   };
 }
-function instance$3($$self, $$props, $$invalidate) {
+function instance$4($$self, $$props, $$invalidate) {
   let $value;
   let $root;
   let $item;
@@ -5231,34 +5231,93 @@ function instance$3($$self, $$props, $$invalidate) {
 class WindowSizeSwitch extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$4, safe_not_equal, {});
+    init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
   }
 }
 function create_fragment$3(ctx) {
   let div;
+  let current;
+  const default_slot_template = (
+    /*#slots*/
+    ctx[1].default
+  );
+  const default_slot = create_slot(
+    default_slot_template,
+    ctx,
+    /*$$scope*/
+    ctx[0],
+    null
+  );
   return {
     c() {
       div = element("div");
-      div.innerHTML = ``;
+      if (default_slot)
+        default_slot.c();
       attr(div, "class", "divider my-0 height-0");
     },
     m(target, anchor) {
       insert(target, div, anchor);
+      if (default_slot) {
+        default_slot.m(div, null);
+      }
+      current = true;
     },
-    p: noop$1,
-    i: noop$1,
-    o: noop$1,
+    p(ctx2, [dirty]) {
+      if (default_slot) {
+        if (default_slot.p && (!current || dirty & /*$$scope*/
+        1)) {
+          update_slot_base(
+            default_slot,
+            default_slot_template,
+            ctx2,
+            /*$$scope*/
+            ctx2[0],
+            !current ? get_all_dirty_from_scope(
+              /*$$scope*/
+              ctx2[0]
+            ) : get_slot_changes(
+              default_slot_template,
+              /*$$scope*/
+              ctx2[0],
+              dirty,
+              null
+            ),
+            null
+          );
+        }
+      }
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(default_slot, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(default_slot, local);
+      current = false;
+    },
     d(detaching) {
       if (detaching) {
         detach(div);
       }
+      if (default_slot)
+        default_slot.d(detaching);
     }
   };
+}
+function instance$3($$self, $$props, $$invalidate) {
+  let { $$slots: slots = {}, $$scope } = $$props;
+  $$self.$$set = ($$props2) => {
+    if ("$$scope" in $$props2)
+      $$invalidate(0, $$scope = $$props2.$$scope);
+  };
+  return [$$scope, slots];
 }
 class DividerHorizontal extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, null, create_fragment$3, safe_not_equal, {});
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
   }
 }
 const Button_svelte_svelte_type_style_lang = "";
@@ -5602,112 +5661,23 @@ class Button extends SvelteComponent {
 }
 const About_svelte_svelte_type_style_lang = "";
 function create_fragment$1(ctx) {
-  let div5;
-  let div0;
-  let t3;
-  let div4;
-  let h2;
-  let t5;
-  let p1;
-  let t7;
-  let br0;
-  let t8;
-  let div1;
-  let counter2;
-  let t9;
-  let br1;
-  let t10;
-  let h1;
-  let t12;
   let div3;
-  let t13;
-  let div2;
-  let button;
-  let current;
-  counter2 = new Counter({});
-  button = new Button({
-    props: {
-      label: "Default",
-      leadingIcon: "heroicons:sun"
-    }
-  });
   return {
     c() {
-      div5 = element("div");
-      div0 = element("div");
-      div0.innerHTML = `<a href="https://webflow.com" target="_blank" rel="noreferrer"><img src="${webflowLogo}" class="logo webflow svelte-16nnv1u" alt="Webflow Logo"/></a> <p class="text-xl">+</p> <a href="https://svelte.dev" target="_blank" rel="noreferrer"><img src="${svelteLogo}" class="logo svelte svelte-16nnv1u" alt="Svelte Logo"/></a>`;
-      t3 = space();
-      div4 = element("div");
-      h2 = element("h2");
-      h2.textContent = "Webflow + Svelte";
-      t5 = space();
-      p1 = element("p");
-      p1.textContent = "Type styling app is underway.";
-      t7 = space();
-      br0 = element("br");
-      t8 = space();
-      div1 = element("div");
-      create_component(counter2.$$.fragment);
-      t9 = space();
-      br1 = element("br");
-      t10 = space();
-      h1 = element("h1");
-      h1.textContent = "Buttons";
-      t12 = space();
       div3 = element("div");
-      t13 = text("Enabled\n      ");
-      div2 = element("div");
-      create_component(button.$$.fragment);
-      attr(div0, "class", "flex items-center");
-      attr(div1, "class", "my-0 mx-auto");
-      attr(div2, "class", "flex items-center gap-2 mb-2");
-      attr(div3, "class", "my-0 mx-auto");
-      attr(div4, "class", "");
-      attr(div5, "class", "flex flex-col items-center");
+      div3.innerHTML = `<div class="flex items-center gap-1"><a href="https://webflow.com" target="_blank" rel="noreferrer"><img src="${webflowLogo}" class="logo webflow svelte-1d7vt73" alt="Webflow Logo"/></a> <p class="text-xl">+</p> <a href="https://svelte.dev" target="_blank" rel="noreferrer"><img src="${svelteLogo}" class="logo svelte svelte-1d7vt73" alt="Svelte Logo"/></a></div> <div class="flex flex-col gap-12"><div class="flex flex-col gap-2"><h2>Designer Extension Starter Kit</h2> <p>Webflow + Svelte + Daisy UI + Melt UI.</p></div></div>`;
+      attr(div3, "class", "flex flex-col mt-4 items-start gap-2");
     },
     m(target, anchor) {
-      insert(target, div5, anchor);
-      append(div5, div0);
-      append(div5, t3);
-      append(div5, div4);
-      append(div4, h2);
-      append(div4, t5);
-      append(div4, p1);
-      append(div4, t7);
-      append(div4, br0);
-      append(div4, t8);
-      append(div4, div1);
-      mount_component(counter2, div1, null);
-      append(div4, t9);
-      append(div4, br1);
-      append(div4, t10);
-      append(div4, h1);
-      append(div4, t12);
-      append(div4, div3);
-      append(div3, t13);
-      append(div3, div2);
-      mount_component(button, div2, null);
-      current = true;
+      insert(target, div3, anchor);
     },
     p: noop$1,
-    i(local) {
-      if (current)
-        return;
-      transition_in(counter2.$$.fragment, local);
-      transition_in(button.$$.fragment, local);
-      current = true;
-    },
-    o(local) {
-      transition_out(counter2.$$.fragment, local);
-      transition_out(button.$$.fragment, local);
-      current = false;
-    },
+    i: noop$1,
+    o: noop$1,
     d(detaching) {
       if (detaching) {
-        detach(div5);
+        detach(div3);
       }
-      destroy_component(counter2);
-      destroy_component(button);
     }
   };
 }
@@ -5728,66 +5698,122 @@ class About extends SvelteComponent {
     init(this, options, instance$1, create_fragment$1, safe_not_equal, { name: 0 });
   }
 }
-function create_default_slot_2(ctx) {
-  let icon;
+function create_default_slot_3(ctx) {
+  let button;
   let current;
-  icon = new Icon({ props: { icon: "heroicons:home-solid" } });
+  button = new Button({
+    props: {
+      variant: "ghost",
+      leadingIcon: "heroicons:home-solid"
+    }
+  });
   return {
     c() {
-      create_component(icon.$$.fragment);
+      create_component(button.$$.fragment);
     },
     m(target, anchor) {
-      mount_component(icon, target, anchor);
+      mount_component(button, target, anchor);
       current = true;
     },
     p: noop$1,
     i(local) {
       if (current)
         return;
-      transition_in(icon.$$.fragment, local);
+      transition_in(button.$$.fragment, local);
       current = true;
     },
     o(local) {
-      transition_out(icon.$$.fragment, local);
+      transition_out(button.$$.fragment, local);
       current = false;
     },
     d(detaching) {
-      destroy_component(icon, detaching);
+      destroy_component(button, detaching);
+    }
+  };
+}
+function create_default_slot_2(ctx) {
+  let button;
+  let current;
+  button = new Button({
+    props: { variant: "ghost", label: "About" }
+  });
+  return {
+    c() {
+      create_component(button.$$.fragment);
+    },
+    m(target, anchor) {
+      mount_component(button, target, anchor);
+      current = true;
+    },
+    p: noop$1,
+    i(local) {
+      if (current)
+        return;
+      transition_in(button.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(button.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      destroy_component(button, detaching);
     }
   };
 }
 function create_default_slot_1(ctx) {
+  let div;
+  let t_value = (
+    /*$routeInfo*/
+    ctx[1].currentRoute + ""
+  );
   let t;
   return {
     c() {
-      t = text("About");
+      div = element("div");
+      t = text(t_value);
+      attr(div, "class", "text-base font-medium");
     },
     m(target, anchor) {
-      insert(target, t, anchor);
+      insert(target, div, anchor);
+      append(div, t);
+    },
+    p(ctx2, dirty) {
+      if (dirty & /*$routeInfo*/
+      2 && t_value !== (t_value = /*$routeInfo*/
+      ctx2[1].currentRoute + ""))
+        set_data(t, t_value);
     },
     d(detaching) {
       if (detaching) {
-        detach(t);
+        detach(div);
       }
     }
   };
 }
 function create_default_slot(ctx) {
+  let header;
+  let div0;
   let nav;
   let link0;
   let t0;
   let link1;
   let t1;
-  let div;
-  let route0;
+  let windowsizeswitch;
   let t2;
+  let dividerhorizontal;
+  let t3;
+  let main;
+  let div1;
+  let route0;
+  let t4;
   let route1;
   let current;
   link0 = new Link({
     props: {
       to: "/",
       class: "nav-link",
-      $$slots: { default: [create_default_slot_2] },
+      $$slots: { default: [create_default_slot_3] },
       $$scope: { ctx }
     }
   });
@@ -5795,6 +5821,13 @@ function create_default_slot(ctx) {
     props: {
       to: "/about",
       class: "nav-link",
+      $$slots: { default: [create_default_slot_2] },
+      $$scope: { ctx }
+    }
+  });
+  windowsizeswitch = new WindowSizeSwitch({});
+  dividerhorizontal = new DividerHorizontal({
+    props: {
       $$slots: { default: [create_default_slot_1] },
       $$scope: { ctx }
     }
@@ -5811,27 +5844,42 @@ function create_default_slot(ctx) {
   });
   return {
     c() {
+      header = element("header");
+      div0 = element("div");
       nav = element("nav");
       create_component(link0.$$.fragment);
       t0 = space();
       create_component(link1.$$.fragment);
       t1 = space();
-      div = element("div");
-      create_component(route0.$$.fragment);
+      create_component(windowsizeswitch.$$.fragment);
       t2 = space();
+      create_component(dividerhorizontal.$$.fragment);
+      t3 = space();
+      main = element("main");
+      div1 = element("div");
+      create_component(route0.$$.fragment);
+      t4 = space();
       create_component(route1.$$.fragment);
-      attr(nav, "class", "flex");
+      attr(nav, "class", "flex join");
+      attr(div0, "class", "app-bar flex items-center self-stretch justify-between py-");
     },
     m(target, anchor) {
-      insert(target, nav, anchor);
+      insert(target, header, anchor);
+      append(header, div0);
+      append(div0, nav);
       mount_component(link0, nav, null);
       append(nav, t0);
       mount_component(link1, nav, null);
-      insert(target, t1, anchor);
-      insert(target, div, anchor);
-      mount_component(route0, div, null);
-      append(div, t2);
-      mount_component(route1, div, null);
+      append(div0, t1);
+      mount_component(windowsizeswitch, div0, null);
+      append(header, t2);
+      mount_component(dividerhorizontal, header, null);
+      insert(target, t3, anchor);
+      insert(target, main, anchor);
+      append(main, div1);
+      mount_component(route0, div1, null);
+      append(div1, t4);
+      mount_component(route1, div1, null);
       current = true;
     },
     p(ctx2, dirty) {
@@ -5847,12 +5895,20 @@ function create_default_slot(ctx) {
         link1_changes.$$scope = { dirty, ctx: ctx2 };
       }
       link1.$set(link1_changes);
+      const dividerhorizontal_changes = {};
+      if (dirty & /*$$scope, $routeInfo*/
+      6) {
+        dividerhorizontal_changes.$$scope = { dirty, ctx: ctx2 };
+      }
+      dividerhorizontal.$set(dividerhorizontal_changes);
     },
     i(local) {
       if (current)
         return;
       transition_in(link0.$$.fragment, local);
       transition_in(link1.$$.fragment, local);
+      transition_in(windowsizeswitch.$$.fragment, local);
+      transition_in(dividerhorizontal.$$.fragment, local);
       transition_in(route0.$$.fragment, local);
       transition_in(route1.$$.fragment, local);
       current = true;
@@ -5860,43 +5916,31 @@ function create_default_slot(ctx) {
     o(local) {
       transition_out(link0.$$.fragment, local);
       transition_out(link1.$$.fragment, local);
+      transition_out(windowsizeswitch.$$.fragment, local);
+      transition_out(dividerhorizontal.$$.fragment, local);
       transition_out(route0.$$.fragment, local);
       transition_out(route1.$$.fragment, local);
       current = false;
     },
     d(detaching) {
       if (detaching) {
-        detach(nav);
-        detach(t1);
-        detach(div);
+        detach(header);
+        detach(t3);
+        detach(main);
       }
       destroy_component(link0);
       destroy_component(link1);
+      destroy_component(windowsizeswitch);
+      destroy_component(dividerhorizontal);
       destroy_component(route0);
       destroy_component(route1);
     }
   };
 }
 function create_fragment(ctx) {
-  let div2;
-  let header;
-  let div1;
-  let div0;
-  let t0_value = (
-    /*$routeInfo*/
-    ctx[1].currentRoute + ""
-  );
-  let t0;
-  let t1;
-  let windowsizeswitch;
-  let t2;
-  let dividerhorizontal;
-  let t3;
-  let main;
+  let div;
   let router;
   let current;
-  windowsizeswitch = new WindowSizeSwitch({});
-  dividerhorizontal = new DividerHorizontal({});
   router = new Router({
     props: {
       url: (
@@ -5909,49 +5953,23 @@ function create_fragment(ctx) {
   });
   return {
     c() {
-      div2 = element("div");
-      header = element("header");
-      div1 = element("div");
-      div0 = element("div");
-      t0 = text(t0_value);
-      t1 = space();
-      create_component(windowsizeswitch.$$.fragment);
-      t2 = space();
-      create_component(dividerhorizontal.$$.fragment);
-      t3 = space();
-      main = element("main");
+      div = element("div");
       create_component(router.$$.fragment);
-      attr(div0, "class", "text-base font-medium");
-      attr(div1, "class", "app-bar flex items-center self-stretch justify-between py-");
-      attr(div2, "class", "app-wrapper p-2");
+      attr(div, "class", "app-wrapper p-2");
     },
     m(target, anchor) {
-      insert(target, div2, anchor);
-      append(div2, header);
-      append(header, div1);
-      append(div1, div0);
-      append(div0, t0);
-      append(div1, t1);
-      mount_component(windowsizeswitch, div1, null);
-      append(header, t2);
-      mount_component(dividerhorizontal, header, null);
-      append(div2, t3);
-      append(div2, main);
-      mount_component(router, main, null);
+      insert(target, div, anchor);
+      mount_component(router, div, null);
       current = true;
     },
     p(ctx2, [dirty]) {
-      if ((!current || dirty & /*$routeInfo*/
-      2) && t0_value !== (t0_value = /*$routeInfo*/
-      ctx2[1].currentRoute + ""))
-        set_data(t0, t0_value);
       const router_changes = {};
       if (dirty & /*url*/
       1)
         router_changes.url = /*url*/
         ctx2[0];
-      if (dirty & /*$$scope*/
-      4) {
+      if (dirty & /*$$scope, $routeInfo*/
+      6) {
         router_changes.$$scope = { dirty, ctx: ctx2 };
       }
       router.$set(router_changes);
@@ -5959,23 +5977,17 @@ function create_fragment(ctx) {
     i(local) {
       if (current)
         return;
-      transition_in(windowsizeswitch.$$.fragment, local);
-      transition_in(dividerhorizontal.$$.fragment, local);
       transition_in(router.$$.fragment, local);
       current = true;
     },
     o(local) {
-      transition_out(windowsizeswitch.$$.fragment, local);
-      transition_out(dividerhorizontal.$$.fragment, local);
       transition_out(router.$$.fragment, local);
       current = false;
     },
     d(detaching) {
       if (detaching) {
-        detach(div2);
+        detach(div);
       }
-      destroy_component(windowsizeswitch);
-      destroy_component(dividerhorizontal);
       destroy_component(router);
     }
   };

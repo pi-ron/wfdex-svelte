@@ -13,17 +13,17 @@
     defaultValue: 'default',
     orientation: 'horizontal'
   });
-
+  
   // Array of available options for window size
   const optionsArr = Object.values(AllowedSizeValues);
   
   // Function to call the Webflow API to change the extension window size
-  const changeSize = async (size: wfdexWebflowApiTypes.AllowedSize) => {
+  const changeSize = async (size: Parameters<typeof webflow.setExtensionSize>[0]) => {
     //Run store function
     setWindowSize(size)
   }
   //Subscribe to melt ui value state then run changeSize
-  $: changeSize($value as wfdexWebflowApiTypes.AllowedSize);
+  $: changeSize($value as Parameters<typeof webflow.setExtensionSize>[0]);
 </script>
  
 <div
